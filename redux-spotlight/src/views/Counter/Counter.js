@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { decrement, increment } from './counterSlice';
+import { decrement, increment, reset, increment2 } from './counterSlice';
 
 const Counter = () => {
   // The function below is called a selector and allows us to select a value from
@@ -8,6 +8,8 @@ const Counter = () => {
   const count = useSelector((state) => state.counter.count);
   const dispatch = useDispatch();
 
+  // const DarkModeToggle = () => {
+  //   const darkMode = useDarkMode(false);
   return (
     <div>
       <button
@@ -26,6 +28,24 @@ const Counter = () => {
         }}
       >
         +
+      </button>
+      <br></br>
+      <button
+        aria-label="Increment Value by 2"
+        onClick={() => {
+          dispatch(increment2());
+        }}
+      >
+        Add 2
+      </button>
+      <br></br>
+      <button
+        aria-label="Reset Value"
+        onClick={() => {
+          dispatch(reset());
+        }}
+      >
+        Reset
       </button>
     </div>
   );
